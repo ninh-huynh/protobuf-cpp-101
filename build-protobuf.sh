@@ -10,7 +10,7 @@ fi
 
 BUILD_PATH=$(pwd)/protobuf-build
 INSTALL_PATH=$(pwd)/protobuf-libs
-ABSL_LIB_DIR=$(pwd)/abseil-libs
+ABSL_LIB_DIR=$(pwd)/abseil-fat-libs
 
 echo "🚀 Configuring ..."
 
@@ -18,8 +18,8 @@ cmake -S $PROJECT_PATH \
       -B $BUILD_PATH \
       -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_INSTALL_PREFIX=$INSTALL_PATH \
-      -DBUILD_SHARED_LIBS=ON \
-      -Dprotobuf_BUILD_SHARED_LIBS=ON \
+      -DBUILD_SHARED_LIBS=OFF \
+      -Dprotobuf_BUILD_SHARED_LIBS=OFF \
       -Dprotobuf_VERBOSE=ON \
       -Dprotobuf_INSTALL=ON \
       -Dprotobuf_BUILD_EXAMPLES=OFF \

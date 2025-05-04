@@ -12,56 +12,9 @@ LINK_TYPE=$1
 rm add_person list_people || true
 
 ABSL_LIBS=(                        
-  -labsl_str_format_internal      
-  -labsl_strings                  
-  -labsl_strings_internal         
-  -labsl_log_initialize           
-  -labsl_log_entry                
-  -labsl_log_flags                
-  -labsl_log_severity             
-  -labsl_log_internal_check_op    
-  -labsl_log_internal_conditions  
-  -labsl_log_internal_message     
-  -labsl_log_internal_nullguard   
-  -labsl_log_internal_proto       
-  -labsl_log_internal_format      
-  -labsl_log_internal_globals     
-  -labsl_log_internal_log_sink_set
-  -labsl_log_sink                 
-  -labsl_raw_logging_internal     
-  -labsl_log_globals              
-  -lutf8_validity                 
-  -labsl_cord                     
-  -labsl_cordz_info               
-  -labsl_cordz_handle             
-  -labsl_cordz_functions          
-  -labsl_cord_internal            
-  -labsl_crc_cord_state           
-  -labsl_crc32c                   
-  -labsl_crc_internal             
-  -labsl_exponential_biased       
-  -labsl_synchronization          
-  -labsl_time                     
-  -labsl_time_zone                
-  -labsl_int128                   
-  -labsl_examine_stack            
-  -labsl_stacktrace               
-  -labsl_symbolize                
-  -labsl_demangle_internal        
-  -labsl_debugging_internal       
-  -labsl_malloc_internal          
-  -labsl_throw_delegate           
-  -labsl_strerror                 
-  -labsl_raw_hash_set             
-  -labsl_hash                     
-  -labsl_city                     
-  -labsl_low_level_hash           
-  -labsl_base                     
-  -labsl_spinlock_wait
-  -labsl_status
-  -labsl_statusor
-  -labsl_kernel_timeout_internal
-  -labsl_crc_cpu_detect 
+  -labsl
+  -lutf8_validity
+  -lutf8_range
 )
 
 compile() {
@@ -74,11 +27,11 @@ compile() {
     -std=c++17 \
     -o "$output_file" \
     -I./protobuf-libs/include \
-    -I./abseil-libs/include \
+    -I./abseil-fat-libs/include \
     -I./proto-code-gen \
     -L./protobuf-libs/lib \
     -lprotobuf \
-    -L./abseil-libs/lib \
+    -L./abseil-fat-libs/lib \
     "${ABSL_LIBS[@]}" \
     $extra_flags
 }

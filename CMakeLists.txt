@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(protobuf_DIR ${CMAKE_CURRENT_SOURCE_DIR}/protobuf-libs/lib/cmake/protobuf)
 set(utf8_range_DIR ${CMAKE_CURRENT_SOURCE_DIR}/protobuf-libs/lib/cmake/utf8_range)
-set(absl_DIR ${CMAKE_CURRENT_SOURCE_DIR}/abseil-libs/lib/cmake/absl)
+set(absl_DIR ${CMAKE_CURRENT_SOURCE_DIR}/abseil-fat-libs/lib/cmake/absl)
 
 find_package(protobuf REQUIRED CONFIG)
 
